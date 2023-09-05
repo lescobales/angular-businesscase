@@ -1,1 +1,9 @@
-<p>user-list works!</p>
+<div class="row mt-1 mb-5">
+	<ng-container *ngFor="let info of infos$ | async">
+		<app-card [infos]="info" class="col-12
+		col-sm-6 col-md-4 mb-3">
+
+		</app-card>
+	</ng-container>
+	<app-paginator class="col-md-8"></app-paginator>
+</div>

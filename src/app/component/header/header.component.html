@@ -1,1 +1,17 @@
-<p>header works!</p>
+<!-- Bar de navigation -->
+<nav>
+	<ul>
+		<li><a routerLink="/home" class="btn red"><span>Accueil</span></a></li>
+		<li><a routerLink="/login" class="btn red">
+				<span>Login</span></a>
+			<a routerLink="/login"><i id="userlogo" class="bi bi-person-fill"></i></a>
+		</li>
+		<li><a routerLink="/inscription" class="btn red"><span>Inscription</span></a></li>
+		<li><a href="javascript:history.back()"><img src="../../../assets/img/logo.png"
+					alt="Logo Taty Josy"></a></li>
+		<li><a routerLink="/nft-search" class="btn red"><span>Search NFT</span></a></li>
+		<li><a routerLink="/user/gallery" class="btn red"><span>Gallerie</span></a></li>
+		<li><a href="/account" class="btn red"><span>Compte</span></a></li>
+		<li>{{date | date}}</li>
+	</ul>
+</nav>

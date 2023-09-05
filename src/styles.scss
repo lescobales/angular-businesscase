@@ -2,3 +2,43 @@
 
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+/* FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+
+$inter:'Inter', sans-serif;
+$red: #981E1E;
+
+$breakpoint-xs:576px;
+$breakpoint-xl: 1000px;
+$lightred:#c0acac;
+
+html,body{
+    text-align: left;
+    font-family: $inter;
+    background: linear-gradient(to bottom left, rgba(152,30,30,.3), rgba(152,30,30,.3));
+    color: $red;
+    @media (max-width: 576px) {
+      height: 100%;
+  }
+  }   /*Button  in navbar */
+  .btn.red{
+    display: inline-block;
+    border: solid 3px $red;
+    background-color: $red;
+    color: black;
+    transition:all .3s ease-in-out;
+    padding: 0rem 1rem;
+
+    &:hover{
+      background-color: black;
+      color: $red;
+      cursor: pointer;
+    }
+    p{
+      margin: .5rem auto;
+    }
+  }
+@import 'app/component/card/card.component.scss';

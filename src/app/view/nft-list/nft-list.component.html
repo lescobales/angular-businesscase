@@ -1,1 +1,7 @@
-<p>nft-list works!</p>
+<div class="row mt-1 mb-5">
+	<app-card *ngFor="let nft of nfts" [nft]="nft" class="col-12
+		col-sm-4 mb-3">
+
+	</app-card>
+	<app-paginator class="col-md-8"></app-paginator>
+</div>

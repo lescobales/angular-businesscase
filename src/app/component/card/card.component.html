@@ -1,1 +1,16 @@
-<p>card works!</p>
+<div class="carduser" *ngIf="infos">
+	<div class="flexcontainer">
+		<div class="left">
+			<dl>
+				<dt>{{infos.user.pseudo | uppercase}}</dt>
+				<dd></dd>
+				<dd>{{infos.nbColl}} Collections</dd>
+				<dd>{{infos.nfts.length}} NFT</dd>
+				<dd>{{value}} ETH</dd>
+			</dl>
+		</div>
+		<div class="right">
+			<img src="{{infos.user.avatar}}" alt="{{infos.user.pseudo}}">
+		</div>
+	</div>
+</div>
