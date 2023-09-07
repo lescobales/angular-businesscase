@@ -2,15 +2,31 @@
 	<div class="flexcontainer">
 		<div class="left">
 			<dl>
-				<dt>{{infos.user.pseudo | uppercase}}</dt>
+				<dt>{{infos.pseudo | uppercase}}</dt>
 				<dd></dd>
-				<dd>{{infos.nbColl}} Collections</dd>
-				<dd>{{infos.nfts.length}} NFT</dd>
-				<dd>{{infos.value}} ETH</dd>
+				<dd>{{infos.nbCollection}} Collections</dd>
+				<dd>{{infos.nbNft}} NFT</dd>
+				<dd>{{infos.totalWeight}} ETH</dd>
 			</dl>
 		</div>
 		<div class="right">
-			<img src="{{infos.user.avatar}}" alt="{{infos.user.pseudo}}">
+			<img src="{{infos.avatar}}" alt="{{infos.pseudo}}">
+		</div>
+	</div>
+</div>
+
+
+<div class="carduser" *ngIf="nft">
+	<div class="flexcontainer">
+		<div class="left">
+			<dl>
+				<dt>{{nft.title | uppercase}}</dt>
+				<dd></dd>
+				<dd>{{nft.initialPrice}} ETH</dd>
+			</dl>
+		</div>
+		<div class="right">
+			<img src="{{nft.representation}}" alt="{{nft.title}}">
 		</div>
 	</div>
 </div>

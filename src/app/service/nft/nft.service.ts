@@ -21,4 +21,13 @@ export class NftService {
 				})
 			))
 	}
+
+	getByOwnerPseudo(pseudo: string, page: number = 1): Promise<Nft[]>{
+		return firstValueFrom(this.http.get<{'hydra:member': NftHttp[]}>(this.baseUrl + 'nfts?owner.pseudo=' + pseudo)
+			.pipe(
+				map(res => {
+					return res['hydra:member'].map(nftHttp => Nft.nftFromHttp(nftHttp))
+				})
+			))
+	}
 }

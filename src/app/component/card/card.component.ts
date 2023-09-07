@@ -9,11 +9,12 @@ import {User} from 'src/app/model/user.model';
 })
 export class CardComponent implements OnInit {
 
-	@Input() infos!: {user: User, nfts: Nft[], nbColl: number, value: number}
+	@Input() infos!: {pseudo: string, avatar: string, nbNft: number, nbCollection: number, totalWeight: number}
 	@Input() nft!: Nft
 
 
 	ngOnInit() {
+		console.log(this.nft)
 			}
 
 }
