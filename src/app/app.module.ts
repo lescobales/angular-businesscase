@@ -27,8 +27,9 @@ import {CollectionFormComponent} from './component/collection-form/collection-fo
 import {SearchComponent} from './component/search/search.component';
 import {PaginatorComponent} from './component/paginator/paginator.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { NftSearchComponent } from './view/nft-search/nft-search.component'
+import { AuthInterceptor } from './interceptor/auth';
 
 @NgModule({
 	declarations: [
@@ -66,7 +67,9 @@ import { NftSearchComponent } from './view/nft-search/nft-search.component'
 		ReactiveFormsModule,
 		HttpClientModule
 	],
-	providers: [],
+	providers: [
+		{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
+	],
 	bootstrap: [AppComponent]
 })
 export class AppModule {}

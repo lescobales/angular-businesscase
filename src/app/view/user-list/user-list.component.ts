@@ -5,6 +5,7 @@ import {User} from 'src/app/model/user.model';
 import {CollectionService} from 'src/app/service/collection/collection.service';
 import {NftService} from 'src/app/service/nft/nft.service';
 import {UserService} from 'src/app/service/user/user.service';
+import {ValueService} from 'src/app/service/value/value.service';
 
 @Component({
 	selector: 'app-user-list',
@@ -15,17 +16,20 @@ export class UserListComponent implements OnInit {
 	infos$: BehaviorSubject<Array<{
 		user: User,
 		nfts: Nft[],
-		nbColl: number
+		nbColl: number,
+		values: number[]
 	}>> = new BehaviorSubject<Array<{
 		user: User,
 		nfts: Nft[],
-		nbColl: number
+		nbColl: number,
+		values: number[]
 	}>>([])
 
 
 	constructor(private userService: UserService,
 		private nftService: NftService,
-		private collectionService: CollectionService) {
+		private collectionService: CollectionService,
+		private valueService: ValueService) {
 
 	}
 
@@ -39,6 +43,7 @@ export class UserListComponent implements OnInit {
 				const nfts = await this.nftService.getByOwnerId(user.id)
 				let ids: number[] = nfts.map(nft => +nft.id)
 				const coll = await this.collectionService.getByNftsId(ids)
+				const values = await this.valueService.getAll()
 				infos.push({user, nfts, nbColl: coll['hydra:totalItems']})
 
 			}

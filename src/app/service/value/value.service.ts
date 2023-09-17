@@ -20,4 +20,8 @@ export class ValueService {
 				map(res => res['hydra:member'].map(valueHttp => Value.valueFromHttp(valueHttp)))
 			))
 	}
+
+	getByNftIds(ids: number[]): Promise<Value[]> {
+		return firstValueFrom(this.http.get<ValueHttp[]>(this.baseUrl + 'nft_values?page=1'))
+	}
 }
