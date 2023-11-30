@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent {
+	placeholder: string = 'Search by nft name'
+	onKeyUpPress(e: Event){
+		console.log(e)
+	}
 
 }

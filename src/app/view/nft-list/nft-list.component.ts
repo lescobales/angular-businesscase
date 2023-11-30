@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import {Nft} from 'src/app/model/nft.model';
 import {NftService} from 'src/app/service/nft/nft.service';
 
@@ -9,12 +10,17 @@ import {NftService} from 'src/app/service/nft/nft.service';
 })
 export class NftListComponent implements OnInit {
 	nfts!: Nft[]
-	constructor(private nftService: NftService) {
+	constructor(private nftService: NftService,
+		private route: ActivatedRoute) {
 
 	}
 
 	ngOnInit() {
-		this.nftService.getByOwnerId(1)
+		const pseudo = this.route.snapshot.paramMap.get('pseudo')
+		if(pseudo){
+		this.nftService.getByOwnerPseudo(pseudo)
 			.then(res => this.nfts = res)
+
+		}
 	}
 }

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Environment } from 'src/app/environment/environment';
 import { BehaviorSubject, firstValueFrom, map } from 'rxjs';
+// import jwtDecode, { JwtPayload } from "jwt-decode";
 
 @Injectable({
   providedIn: 'root'
@@ -22,9 +23,12 @@ token$ = this.tokenSubject$.asObservable()
 	login(credentials: {username: string, password: string}): Promise<void>{
 		return firstValueFrom(
 			this.http
-			.post<{token: string}>(this.baseUrl + 'api/login_check', credentials)
+			.post<{token: string}>(this.baseUrl + 'login_check', credentials)
 			.pipe(
-				map(response => this.tokenSubject$.next(response.token))
+				map(response => {
+					this.tokenSubject$.next(response.token)
+					// const decoded = jwtDecode<JwtPayload>(response.token)
+				})
 
 		)	
 	)

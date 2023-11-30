@@ -11,6 +11,7 @@ import {InscriptionComponent} from './view/inscription/inscription.component';
 import {LoginComponent} from './view/login/login.component';
 import {NftAddComponent} from './view/nft-add/nft-add.component';
 import {NftEditComponent} from './view/nft-edit/nft-edit.component';
+import { NftListComponent } from './view/nft-list/nft-list.component';
 import {NftSearchComponent} from './view/nft-search/nft-search.component';
 import {UserEditComponent} from './view/user-edit/user-edit.component';
 import {UserListComponent} from './view/user-list/user-list.component';
@@ -19,10 +20,11 @@ const routes: Routes = [
 	{path: '', pathMatch: 'full', redirectTo: 'home'},
 	{path: 'home', component: HomeComponent},
 	{path: 'user-list', component: UserListComponent},
-	{path: 'collection-list', component: CollectionListComponent},
 	{path: 'nft-search', component: NftSearchComponent},
 	{path: 'login', component: LoginComponent},
 	{path: 'inscription', component: InscriptionComponent},
+	{path: ':pseudo/nft-list', component: NftListComponent},
+	{path: ':pseudo/collection-list', component: CollectionListComponent},
 	{
 		path: ':pseudo', canActivate: [authGuard], children: [
 			{path: 'account', component: AccountComponent},
