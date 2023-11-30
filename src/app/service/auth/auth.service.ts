@@ -29,7 +29,6 @@ token$ = this.tokenSubject$.asObservable()
 					this.tokenSubject$.next(response.token)
 					// const decoded = jwtDecode<JwtPayload>(response.token)
 				})
-
 		)	
 	)
 	}

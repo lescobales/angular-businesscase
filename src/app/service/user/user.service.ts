@@ -26,8 +26,12 @@ export class UserService {
 			))
 	}
 
-	getUserGlobalInfo(offset: number = 0, limit: number =10):Promise<Array<{nbNft: number, nbCollection: number, pseudo: string, avatar:string, totalWeight: number}>>{
+	getUserGlobalInfo(offset: number = 0, limit: number = 10):Promise<Array<{nbNft: number, nbCollection: number, pseudo: string, avatar:string, totalWeight: number}>>{
 		return firstValueFrom(this.http.get<Array<{nbNft: number, nbCollection: number, pseudo: string, avatar:string,  totalWeight: number}>>(this.baseUrl + 'user_info?limit=' + limit + '&offset=' + offset))
+	}
+
+	addUser(userInfo: {}) {
+		this.http.post<{email: string, password: string}>(this.baseUrl + 'users', userInfo).subscribe();
 	}
 
 }

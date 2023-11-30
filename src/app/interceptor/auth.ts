@@ -16,7 +16,6 @@ export class AuthInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     const token = this.authService.token
-    console.log('token')
     //Pour Api Plateform ce sera Bearer au lieu de Authorization
     const toHandle = request.clone({
       headers: new HttpHeaders({

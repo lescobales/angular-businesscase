@@ -1,4 +1,4 @@
-<form action="" method="POST" class="connexion mx-auto w-75 mt-5" id="inscription">
+<form #inscriptionForm="ngForm" (ngSubmit)="onSubmitInscriptionForm(inscriptionForm)">
 	<h2>Inscription</h2>
 	<div class="container p-0">
 		<div class="row">
@@ -18,12 +18,12 @@
 			</div>
 			<div class="col-12 col-md-6">
 				<div class="mb-4">
-					<label for="e-mail" class="d-block p-1">E-mail</label>
-					<input type="text" name="e-mail" id="e-mail">
+					<label for="email" class="d-block p-1">E-mail</label>
+					<input type="text" name="email" id="email" ngModel>
 				</div>
 				<div class="mb-4">
-					<label for="mdp" class="d-block p-1">Mot de passe</label>
-					<input type="password" name="mdp" id="mdp">
+					<label for="password" class="d-block p-1">Mot de passe</label>
+					<input type="password" name="password" id="password" ngModel>
 				</div>
 				<div class="mb-4">
 					<label for="check-mdp" class="d-block p-1">Vérification mot de passe</label>
@@ -32,7 +32,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="btn red">
-		<p>Inscription</p>
-	</div>
+	<button type="submit" [disabled]="inscriptionForm.invalid" class="btn red p-2">
+		Inscription
+	  </button>
 	</form>
