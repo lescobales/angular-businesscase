@@ -19,7 +19,6 @@ import {UserListComponent} from './view/user-list/user-list.component';
 const routes: Routes = [
 	{path: '', pathMatch: 'full', redirectTo: 'home'},
 	{path: 'home', component: HomeComponent},
-	{path: 'user-list', component: UserListComponent},
 	{path: 'nft-search', component: NftSearchComponent},
 	{path: 'login', component: LoginComponent},
 	{path: 'inscription', component: InscriptionComponent},
@@ -33,7 +32,8 @@ const routes: Routes = [
 			{path: 'add-nft', component: NftAddComponent},
 			{path: 'edit-collection', component: CollectionEditComponent},
 			{path: 'add-collection', component: CollectionAddComponent},
-			{path: 'edit-user', component: UserEditComponent}
+			{path: 'edit-user', component: UserEditComponent},
+			{path: 'user-info', component: UserListComponent}
 		]
 	}
 ];
